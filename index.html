@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="/css/style.css" type="text/css" />
+        
+        <script src="/node_modules/angular/angular.min.js"></script> 
+        <script type="text/javascript" src="app.js"></script>
+    </head>
+    <body ng-app="myApp">
+        <div ng-controller="userSessionsController as Users">
+            <div ng-controller="loginInterface">
+                <h1>Login</h1>
+                <div>{{loginMessage}}</div>
+                
+                <input ng-model="username">
+                <input ng-model="password">
+                <button ng-click="Users.login(username, password, login)">login</button>
+            </div>
+            <div ng-controller="registrationInterface">
+                <h1>Register</h1>
+                <div>{{regisMessage}}</div>
+                name: <input ng-model="username">
+                password: <input type="password" ng-model="password">
+                password: <input type="password" ng-model="repeat">
+                <button ng-click="Users.register(username, password, repeat, register)">register</button>
+            </div>
+            <div ng-controller="userSessionsController">
+                <div>{{logoutMessage}}</div>
+                <button ng-click="Users.logout(username, password, logout)">Logout</button>
+            </div>
+                <h1>Who's online</h1>
+                <ul ng-repeat = "(name, user) in Users.sessions">
+                    <li>{{name}}</li>
+                </ul>
+                
+                <h1>registered users</h1>
+                <ul ng-repeat="(name, user) in Users.users">
+                    <li>{{name}}</li>
+                </ul>
+        </div>
+       
+    </body>
+</html>
