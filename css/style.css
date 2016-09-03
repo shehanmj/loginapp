@@ -1,0 +1,9 @@
+.landing {
+    position: relative;
+    left: 40%;
+    
+}
+.landing input, button {
+    margin-top:10px;
+}
+

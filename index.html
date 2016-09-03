@@ -2,42 +2,33 @@
 <html >
     <head>
         <title>Login</title>
-        <link rel="stylesheet" href="/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/css" />
         
         <script src="/node_modules/angular/angular.min.js"></script> 
         <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript" src="directives/directives.js"></script>
+        
     </head>
     <body ng-app="myApp">
         <div ng-controller="userSessionsController as Users">
-            <div ng-controller="loginInterface">
-                <h1>Login</h1>
-                <div>{{loginMessage}}</div>
-                
-                <input ng-model="username">
-                <input ng-model="password">
-                <button ng-click="Users.login(username, password, login)">login</button>
+            <div class="row">
+                <login class="col-sm-12 landing"></login>
             </div>
-            <div ng-controller="registrationInterface">
-                <h1>Register</h1>
-                <div>{{regisMessage}}</div>
-                name: <input ng-model="username">
-                password: <input type="password" ng-model="password">
-                password: <input type="password" ng-model="repeat">
-                <button ng-click="Users.register(username, password, repeat, register)">register</button>
+            <div class="row">
+                <register class="col-sm-12 landing"></register>
             </div>
-            <div ng-controller="userSessionsController">
-                <div>{{logoutMessage}}</div>
-                <button ng-click="Users.logout(username, password, logout)">Logout</button>
+            <div class="row">
+                <logout class="col-sm-12 landing"></logout>
+            </div>    
+            <div class="row">
+                <h1>Who's online?</h1>
             </div>
-                <h1>Who's online</h1>
-                <ul ng-repeat = "(name, user) in Users.sessions">
-                    <li>{{name}}</li>
-                </ul>
-                
-                <h1>registered users</h1>
-                <ul ng-repeat="(name, user) in Users.users">
-                    <li>{{name}}</li>
-                </ul>
+            <div class="row">
+                <list object="Users.sessions">
+            </div>        
+            <h1>Registered Users</h1>    
+            <list object="Users.users">    
         </div>
        
     </body>

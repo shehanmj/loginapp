@@ -49,7 +49,7 @@ app.controller('userSessionsController', ["$scope", function(scope) {
     
 app.controller("loginInterface", ["$scope", function(s) {
     
-    s.loginMessage = "Waiting for a login attempt";
+    s.loginMessage = "";
     
     s.login = function(success, fail) {
         if(success) {
@@ -57,6 +57,22 @@ app.controller("loginInterface", ["$scope", function(s) {
         }
         else if(fail) {
             s.loginMessage = fail.message;
+        }
+    };
+}]);
+
+// logout interface controller
+
+app.controller("logoutInterface", ["$scope", function(s) {
+    
+    s.logoutMessage = "";
+    
+    s.logout = function(success, fail) {
+        if(success) {
+            s.logoutMessage = success.message;
+        }
+        else if(fail) {
+            s.logoutMessage = fail.message;
         }
     };
 }]);
@@ -77,5 +93,7 @@ app.controller("registrationInterface", ["$scope", function(s) {
         }
     };
 }]);
+
+
 
 
